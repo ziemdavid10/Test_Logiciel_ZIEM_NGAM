@@ -11,9 +11,9 @@ function generateRandomEmail() {
         return Array.from({ length }, () => charSet[Math.floor(Math.random() * charSet.length)]).join('');
     }
 
-    const localPart = getRandomString(7, chars);
-    const domain = getRandomString(6, domainChars);
-    const tld = getRandomString(4, tldChars);
+    const localPart = getRandomString(8, chars);
+    const domain = getRandomString(5, domainChars);
+    const tld = getRandomString(3, tldChars);
 
     return `${localPart}@${domain}.${tld}`;
 }
