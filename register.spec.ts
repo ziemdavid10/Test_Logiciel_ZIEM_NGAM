@@ -1,5 +1,6 @@
 import { test } from '@playwright/test';
 
+export const monSet = new Set();
 const URL = "https://ztrain-web.vercel.app/home";
 
 function generateRandomEmail() {
@@ -21,6 +22,13 @@ function generateRandomEmail() {
 console.log(generateRandomEmail());
 
 let emailaleatoire = generateRandomEmail();
+while (monSet.has(emailaleatoire)) {
+    // Si oui, générer un nouvel email
+    emailaleatoire = generateRandomEmail();
+}
+monSet.add(emailaleatoire);
+// Vérifier si l'email est déjà dans le set
+
 
 
 test('Inscription d\'un utilisateur', async ({ page }) => {
